@@ -12,7 +12,6 @@ Este repositório é o **guia** da formação. Não precisas de mexer nele: vais
 | [skills/junitec-mini-app.zip](skills/junitec-mini-app.zip) | A skill de exemplo, pronta a carregar no Claude |
 | [skills/junitec-mini-app/SKILL.md](skills/junitec-mini-app/SKILL.md) | O que está dentro da skill: é só texto |
 | [CHEATSHEET.md](CHEATSHEET.md) | Vocabulário, comandos de git e boas práticas |
-| [FORMADOR.md](FORMADOR.md) | Preparação da sessão (só para quem dá a formação) |
 
 ## As regras da casa
 
