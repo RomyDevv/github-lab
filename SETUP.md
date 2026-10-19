@@ -1,6 +1,6 @@
 # Setup antes da formação ⚙️
 
-Faz isto **antes de segunda-feira, 19/10, às 18h**. Demora 10 a 15 minutos. Se alguma coisa falhar, não há problema: na sala ajudamos. Avisa só o formador antes de começar.
+Faz isto **antes da formação de hoje, segunda-feira, 19/10, às 18h**. Demora 10 a 15 minutos. Se alguma coisa falhar, escreve no canal do Slack da formação: a tua dúvida pode ser a de outra pessoa. Se não der para resolver por aí, resolvemos na sala.
 
 Precisas de quatro coisas:
 
@@ -87,7 +87,7 @@ git config --global user.email "o-teu-email@exemplo.com"
 
 ## 4. Preparar o Claude
 
-1. Cria conta em [claude.ai](https://claude.ai). A conta grátis chega.
+1. Cria conta em [claude.ai](https://claude.ai). A conta grátis chega. Podes usar o browser ou a app Claude Desktop: é a mesma conta e as mesmas skills.
 2. **Settings → Capabilities** → liga **Code execution and file creation**.
 3. Descarrega a skill [`skills/junitec-mini-app.zip`](skills/junitec-mini-app.zip) deste repo (abre o ficheiro → botão de download).
 4. No Claude: **Customize → Skills → + → Upload a skill** → escolhe o zip.
@@ -123,4 +123,4 @@ No Claude, a skill **junitec-mini-app** aparece em **Customize → Skills**.
 | `gh: command not found` | O mesmo: reabre o terminal; no Windows usa o Git Bash. |
 | O browser não abre no `gh auth login` | Abre à mão [github.com/login/device](https://github.com/login/device) e cola o código. |
 | Pede password num `git push` | O `gh auth login` não ficou feito. Corre-o outra vez e responde **Yes** à pergunta sobre o Git. |
-| Não aparece *Capabilities* ou *Skills* no Claude | Actualiza a página. Se continuar, avisa na formação. |
+| Não aparece *Capabilities* ou *Skills* no Claude | Actualiza a página. Se continuar, escreve no canal do Slack. |

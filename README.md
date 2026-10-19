@@ -2,12 +2,13 @@
 
 Este repositório é o **guia** da formação. Não precisas de mexer nele: vais criar o teu próprio repositório, em dupla ou trio, e usar este como referência.
 
-👉 **Começa aqui: [PRATICA.md](PRATICA.md)**
+👉 **Antes da formação: [SETUP.md](SETUP.md)** · **Na formação: [PRATICA.md](PRATICA.md)**
 
 ## O que está aqui
 
 | Ficheiro | Para quê |
 | --- | --- |
+| [SETUP.md](SETUP.md) | Instalar o Git e o GitHub CLI (Windows, macOS, Linux) e preparar o Claude |
 | [PRATICA.md](PRATICA.md) | A prática passo a passo: criar o repo, gerar uma mini app com o Claude e publicá-la |
 | [skills/junitec-mini-app.zip](skills/junitec-mini-app.zip) | A skill de exemplo, pronta a carregar no Claude |
 | [skills/junitec-mini-app/SKILL.md](skills/junitec-mini-app/SKILL.md) | O que está dentro da skill: é só texto |

@@ -1,6 +1,8 @@
 # Prática: um repo e uma mini app 🚀
 
-Em **dupla ou trio** com quem está ao teu lado, tudo no browser.
+Em **dupla ou trio** com quem está ao teu lado. Os repos criam-se no browser, o código envia-se pelo terminal.
+
+> **Ainda não fizeste o setup?** Segue o [SETUP.md](SETUP.md) primeiro: Git, GitHub CLI e Claude.
 
 No fim, o vosso grupo tem um repositório próprio no GitHub com uma mini app feita com o Claude, publicada num site. Cada mudança entrou por pull request.
 
@@ -30,7 +32,7 @@ No fim, o vosso grupo tem um repositório próprio no GitHub com uma mini app fe
 ### Pessoas 2 e 3, ao mesmo tempo
 
 1. Aceitem o convite: chega por email, ou abram `https://github.com/<username-da-pessoa-1>/o-nosso-repo/invitations`.
-2. Preparem o Claude, que é preciso no Passo 2:
+2. Se ainda não o fizeram no [SETUP.md](SETUP.md), preparem o Claude, que é preciso no Passo 2:
    - Em [claude.ai](https://claude.ai), **Settings → Capabilities** → liguem **Code execution and file creation**.
    - Descarreguem [`skills/junitec-mini-app.zip`](skills/junitec-mini-app.zip) deste guia.
    - **Customize → Skills → + → Upload a skill** e escolham o zip.
@@ -68,24 +70,63 @@ e taxa à hora e ver o total com e sem IVA].
 
 ---
 
-## Passo 3 — Publicar por pull request (~7 min)
+## Passo 3 — Publicar por pull request (~10 min)
 
-1. No repo do grupo: **Add file → Create new file**, nome `index.html`, e colem o código.
-2. **Commit changes…** → mensagem `Adiciona a mini app` → **Create a new branch for this commit and start a pull request** → **Propose changes** → **Create pull request**.
-3. Em **Reviewers**, à direita, peçam revisão a um colega do grupo.
-4. 👀 **Quem revê:** separador **Files changed** → **Review changes** → *Approve* → *Submit review*.
-5. **Merge pull request → Confirm merge → Delete branch**.
-6. Abram `https://<username-da-pessoa-1>.github.io/o-nosso-repo/` (cerca de 1 minuto depois do merge). 🎉
+Quem tem o código do Passo 2 faz isto no terminal (no Windows, no **Git Bash**). Os outros acompanham ao lado.
+
+1. Copiar o repo do grupo para o computador e criar um branch:
+
+   ```
+   git clone https://github.com/<username-da-pessoa-1>/o-nosso-repo.git
+   cd o-nosso-repo
+   git switch -c adiciona-app
+   ```
+
+2. Guardem o código do Claude como **`index.html`** dentro da pasta `o-nosso-repo`. Podem descarregar o ficheiro no Claude ou colar o código num editor e fazer *Guardar como*.
+
+3. Ver, guardar e enviar:
+
+   ```
+   git status
+   git add index.html
+   git commit -m "Adiciona a mini app"
+   git push -u origin adiciona-app
+   ```
+
+4. O `git push` mostra um link. Abram-no → **Create pull request**. Em **Reviewers**, à direita, peçam revisão a um colega do grupo.
+5. 👀 **Quem revê:** separador **Files changed** → **Review changes** → *Approve* → *Submit review*.
+6. **Merge pull request → Confirm merge → Delete branch**.
+7. Abram `https://<username-da-pessoa-1>.github.io/o-nosso-repo/` (cerca de 1 minuto depois do merge). 🎉
+
+> **Sem terminal?** No repo do grupo: **Add file → Create new file**, nome `index.html`, colem o código → **Commit changes… → Create a new branch for this commit and start a pull request**. Depois sigam do ponto 4.
 
 ---
 
 ## Passo 4 — Uma melhoria com issue (~8 min)
 
 1. Escolham uma das melhorias que o Claude sugeriu e criem uma **issue** com ela (**Issues → New issue**), atribuída a alguém do grupo em **Assignees**. Reparem no número (ex.: `#1`).
-2. Essa pessoa dá ao Claude o código **actual**: abre o `index.html` no GitHub, copia-o e cola-o na conversa (ou usa **+ → Add from GitHub**).
-3. Pede a melhoria e revê o que mudou antes de copiar.
-4. No GitHub, abre o `index.html` → ✏️ → cola o código novo → **Commit changes… → Create a new branch** → no pull request escreve `Closes #1`.
-5. Review de um colega → merge. A issue **fecha-se sozinha** e o site actualiza-se.
+2. Essa pessoa dá ao Claude o código **actual**: abre o `index.html` no GitHub, copia-o e cola-o na conversa. Pede a melhoria e revê o que mudou.
+3. No terminal, dentro da pasta `o-nosso-repo`:
+
+   ```
+   git switch main
+   git pull
+   git switch -c melhoria-1
+   ```
+
+4. Substituam o conteúdo do `index.html` pelo código novo e guardem.
+
+   ```
+   git diff
+   git add index.html
+   git commit -m "Acrescenta exportar CSV"
+   git push -u origin melhoria-1
+   ```
+
+5. Abram o link → **Create pull request** → na descrição escrevam `Closes #1`.
+6. Review de um colega → merge. A issue **fecha-se sozinha** e o site actualiza-se.
+
+> **Se não foste tu a fazer o Passo 3**, começa por `git clone …` e `cd o-nosso-repo`, como no Passo 3, e depois segue daqui.
 
 ---
 
@@ -95,21 +136,15 @@ e taxa à hora e ver o total com e sem IVA].
 2. O primeiro pull request entra. O segundo mostra ⚠️ *This branch has conflicts*. Cliquem em **Resolve conflicts**.
 3. Decidam juntos a versão final, apaguem as linhas `<<<<<<<`, `=======` e `>>>>>>>` e façam **Mark as resolved → Commit merge**.
 
-## Bónus para casa — No terminal
+## Se o terminal der erro
 
-```bash
-git clone https://github.com/<pessoa-1>/o-nosso-repo.git
-cd o-nosso-repo
-git switch -c a-minha-mudanca
-# edita o index.html
-git status
-git diff
-git add index.html
-git commit -m "Descreve a mudança"
-git push -u origin a-minha-mudanca
-```
-
-Depois abre o link que o `git push` mostra e cria o pull request.
+| Mensagem | O que fazer |
+|---|---|
+| `fatal: not a git repository` | Faltou o `cd o-nosso-repo`. |
+| `Permission denied` ou `403` no push | Ainda não aceitaste o convite do repo, ou falta o `gh auth login` do [SETUP.md](SETUP.md). |
+| `protected branch` ou `rejected` | Tentaste enviar para o `main`. Cria um branch com `git switch -c …`. |
+| `Author identity unknown` | Falta o `git config --global user.name/email` do [SETUP.md](SETUP.md). |
+| `nothing to commit` | O `index.html` não foi guardado dentro da pasta `o-nosso-repo`. |
 
 ---
 
